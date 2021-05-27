@@ -3,19 +3,25 @@
 
 ### Подключение (NODE MCU ESP8266)
 #### BME280
+```
 vin - 3.3V
 GND - GND
 SCL - GPIO 0 (D3)
 SDA - GPIO 2 (D4)
+```
 #### Button
+```
 vin - 3.3V
 GND - GND
 I/O - GPIO 5 (D1)
+```
 #### Oled
+```
 VDD(vin) - 3.3V
 GND - GND
 SCK - GPIO 14 (D5)
 SDA - GPIO 12 (D6)
+```
 
 ## Загрузка файлов в NODE MCU ESP8266
 ###### linux 
