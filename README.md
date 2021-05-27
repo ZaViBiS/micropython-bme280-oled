@@ -31,8 +31,8 @@ sudo apt install python3 python3-pip esptool
 sudo pip3 install mpfshell esptool
 ```
 
-Скачаваете micropython c офицального [сайта](https://micropython.org/)
-Переходи в дерикторию с прошивкой
+###### Скачаваете micropython c офицального [сайта](https://micropython.org/)
+###### Переходи в дерикторию с прошивкой
 
 ```console
 sudo python -m esptool erase_flash
