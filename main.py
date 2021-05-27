@@ -1,15 +1,14 @@
 from functions import *
-from bmFunc import *
-from oledFunc import *
 import time
 
 offWifi() # Выключить wifi
 
 while True:
-    if button.value():
-        print('temperature : ' + temp())
-        print('humidity : ' + hum())
-        print('pressure : ' + pres())
-        dataOutput(temp(), pres())
+    for x in range(100):
+        if button.value():
+            pokazDanih()
+            break
 
-    time.sleep(0.1)
+        time.sleep(0.1)
+    else:
+        pokazDanih()
