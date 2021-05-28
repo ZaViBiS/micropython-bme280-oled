@@ -7,7 +7,7 @@
 vin - 3.3V
 GND - GND
 SCL - GPIO 0 (D3)
-SDA - GPIO 2 (D4)
+SDA - GPIO 4 (D2)
 ```
 #### Button
 ```
@@ -31,8 +31,8 @@ sudo apt install python3 python3-pip esptool
 sudo pip3 install mpfshell esptool
 ```
 
-Скачаваете micropython c офицального [сайта](https://micropython.org/)
-Переходи в дерикторию с прошивкой
+###### Скачаваете micropython c офицального [сайта](https://micropython.org/)
+###### Переходи в дерикторию с прошивкой
 
 ```console
 sudo python -m esptool erase_flash
