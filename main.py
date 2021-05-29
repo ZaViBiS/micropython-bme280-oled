@@ -4,7 +4,7 @@ import time
 offWifi() # Выключить wifi
 
 while True:
-    for x in range(100):
+    for x in range(1000):
         if button.value():
             pokazDanih()
             break
