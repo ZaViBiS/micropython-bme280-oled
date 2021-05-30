@@ -24,6 +24,8 @@ def rereData():
             normalData = json.loads(t)
             normalData[0] = normalData[0].replace('C', '')
             normalData[1] = normalData[1].replace('hPa', '')
+            normalData[0] = float(normalData[0])
+            normalData[1] = float(normalData[1])
             
             l.append(normalData)
             t = ''
