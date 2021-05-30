@@ -1,16 +1,37 @@
 import matplotlib.pyplot as plt
-from datetime import datetime
 import pandas as pd
-import itertools
+# import itertools
 import json
 
+'''
 def jsonReader(): # Чтение файла
     with open('data.json') as file:
         data = json.load(file)
     return data
+'''
+
+def rereData():
+    file = open('data.json')
+    data = file.read()
+    file.close()
+
+    t = ''
+    l = []
+    for x in data:
+        t += x
+        if t[-1] == ']':
+            
+            normalData = json.loads(t)
+            normalData[0] = normalData[0].replace('C', '')
+            normalData[1] = normalData[1].replace('hPa', '')
+            
+            l.append(normalData)
+            t = ''
+    return l
 
 # uTdt = lambda time : datetime.utcfromtimestamp(time).strftime('%H:%M:%S')
 
+'''
 def reData():
     data = jsonReader()
     newData = {'temp' : [], 'pres' : []}
@@ -28,9 +49,10 @@ def reData():
         data.append(list(x))
 
     return data
+'''
 
 def main():
-    data = reData()
+    data = rereData()
     data = pd.DataFrame(data, columns = ['temp', 'pres'])
 
     plt.subplot(2, 1, 2)

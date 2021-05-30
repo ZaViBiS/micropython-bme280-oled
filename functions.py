@@ -17,6 +17,8 @@ def dhtData():
     d.measure()
     return [d.temperature(), d.humidity()]
 
+avg = lambda number, raz : round(number / raz, 2)
+
 def pokazDolgihDanih():
     tempirature = 0
     press = 0
@@ -34,11 +36,11 @@ def pokazDolgihDanih():
 
         time.sleep(0.1)
 
-    tempirature = round( tempirature / raz, 2)
-    press = round(press / raz, 2)
+    tempirature = avg(tempirature, raz)
+    press = avg(press, raz)
 
-    dht_tempirature = round(dht_tempirature / raz, 2)
-    dht_press = round(dht_press / raz, 2)
+    dht_tempirature = avg(dht_tempirature, raz)
+    dht_press = avg(dht_press, raz)
 
     tempirature = str(tempirature) + 'C'
     press = str(press) + 'hPa'
@@ -57,7 +59,7 @@ def pokazDanih():
     print('humidity : ' + bData[1])
     print('pressure : ' + bData[2])
     dataOutput(bData[0], bData[2], float(dht_data[0]), float(dht_data[1]))
-    # writeData(bData[0], bData[2])
+    writeData(bData[0], bData[2])
 
 def jsonReader(): # Чтение файла
     with open('data.json') as file:
@@ -65,11 +67,13 @@ def jsonReader(): # Чтение файла
     return data
 
 def writeData(temp, pres):
+    '''
     data = jsonReader()
     data['temp'].append([temp])
     data['pres'].append([pres])
-
-    jsonWriter(data)
+    '''
+    data = [temp, pres]
+    testWriter(data)
 
 '''
 def writeData(temp, pres):
@@ -79,6 +83,10 @@ def writeData(temp, pres):
             print('новое' if line == 'старое' else line)  # stdout is redirected to the file
     os.unlink(filename + '.bak') # remove the backup on success
 '''
+
+def testWriter(data):
+    with open('data.json', 'a') as file:
+        json.dump(data, file)
 
 def jsonWriter(data): # Запись в файл
     with open('data.json', 'w') as outfile:
